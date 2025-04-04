@@ -37,7 +37,7 @@ func handler(ctx context.Context, b *bot.Bot, update *models.Update) {
 	costo, err := strconv.ParseFloat(value, 64)
 
 	if err != nil {
-		fmt.Print("Error al convertir el string a int")
+		fmt.Print("Error al convertir")
 		
 		b.SendMessage(ctx, &bot.SendMessageParams{
 			ChatID: update.Message.Chat.ID,

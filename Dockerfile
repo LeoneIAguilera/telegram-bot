@@ -10,7 +10,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o /app .
 
-from alpine:latest
+FROM alpine:latest
 
 COPY --from=build /app /app
 

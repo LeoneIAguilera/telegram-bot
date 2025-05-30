@@ -14,19 +14,19 @@ import (
 
 func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
-	defer cancel()
+	defer cancel()	
 
-	token := os.Getenv("TOKEN")
-
+	
 	opts := []bot.Option{
 		bot.WithDefaultHandler(handler),
 	}
-
+	token := os.Getenv("TOKEN")
+	
 	b, err := bot.New(token, opts...)
-	if err != nil {
-		panic(err)
-	}
 
+	if err != nil {
+		log.Fatalln("Error al iniciar el bot")
+	}
 	log.Println("bot running")
 	b.Start(ctx)
 }
